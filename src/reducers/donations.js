@@ -1,7 +1,7 @@
 export const donations = (state = [], action) => {
   switch (action.type) {
     case 'SET_DONATIONS' :
-      return [...state, action.donations]
+      return action.donations
     default :
       return state;
   }

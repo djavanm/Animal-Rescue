@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import AnimalContainer from '../../components/AnimalContainer/AnimalContainer';
 
 export class App extends Component {
   async componentDidMount() {
@@ -25,9 +26,10 @@ export class App extends Component {
     console.log('animals',  rescueAnimals)
     console.log('donations', donations);
     return (
-      <div>
-        hi
-      </div>
+      <main>
+      { isLoading && <h3> Currently Loading </h3> }
+      { !isLoading && <AnimalContainer allAnimalData={rescueAnimals} />}
+      </main>
     )
   }
 };
