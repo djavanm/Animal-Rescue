@@ -27,10 +27,11 @@ export class DonationForm extends Component {
       donation
     }
     sendDonation(donationToSend);
+    this.clearInputs();
   }
 
   clearInputs = () => {
-    this.setState({ name: '', donation:'' })
+    this.setState({ name: '', donation: '' })
   }
 
   render() {

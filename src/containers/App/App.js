@@ -24,10 +24,15 @@ export class App extends Component {
 
   sendDonation = async (donation) => {
     const { setDonations } = this.props;
-    const newDonation = await postDonation(donation);
-    const donations = await getDonations();
-    setDonations(donations);
-  }
+    try {
+      const newDonation = await postDonation(donation);
+      const donations = await getDonations();
+      setDonations(donations);
+    } catch {
+
+    }
+
+  };
 
   render() {
     const { rescueAnimals, donations, hasErrored, isLoading } = this.props;
