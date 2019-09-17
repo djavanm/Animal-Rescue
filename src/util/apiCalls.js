@@ -12,3 +12,17 @@ export const getDonations = async () => {
   const donations = await response.json();
   return donations;
 }
+
+export const postDonation = async (donation) => {
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(donation),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  const url = `http://localhost:3001/api/v1/donations/`
+  const response = await fetch(url, options);
+  const donationStatus = await response.json();
+  return donationStatus;
+};
