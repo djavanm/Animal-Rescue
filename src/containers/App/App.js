@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AnimalContainer from '../../components/AnimalContainer/AnimalContainer';
+import Donations from '../../components/Donations/Donations';
 
 export class App extends Component {
   async componentDidMount() {
@@ -28,7 +29,10 @@ export class App extends Component {
     return (
       <main>
       { isLoading && <h3> Currently Loading </h3> }
+      <section className='info-container'>
       { !isLoading && <AnimalContainer allAnimalData={rescueAnimals} />}
+      { !isLoading && <Donations donations={donations} />}
+      </section>
       </main>
     )
   }
